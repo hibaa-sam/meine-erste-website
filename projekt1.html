@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projekt 1 - Taschenrechner</title>
+<style>
+body{font-family:system-ui;background:#FFFBF2;display:flex;justify-content:center;align-items:center;min-height:100vh;margin:0}
+.box{background:#fff;padding:30px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.1);text-align:center;width:300px}
+input{width:100px;padding:10px;margin:5px;border:1px solid #ddd;border-radius:10px;text-align:center;font-size:18px}
+button{background:#FF6B7A;color:#fff;border:none;padding:10px 20px;border-radius:20px;margin:5px;font-size:16px}
+#result{font-size:28px;font-weight:bold;margin-top:15px;color:#FF6B7A}
+a{color:#888;text-decoration:none;font-size:13px;display:block;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="box">
+<h2>Mein Taschenrechner 🧮</h2>
+<input id="a" type="number" placeholder="5">
+<input id="b" type="number" placeholder="3">
+<br>
+<button onclick="calc('+')">+</button>
+<button onclick="calc('-')">-</button>
+<button onclick="calc('*')">×</button>
+<button onclick="calc('/')">÷</button>
+<div id="result">0</div>
+<a href="index.html">← Zurück zur Hauptseite</a>
+</div>
+<script>
+function calc(op){
+let x=parseFloat(document.getElementById('a').value)||0;
+let y=parseFloat(document.getElementById('b').value)||0;
+let r=0;
+if(op=='+')r=x+y;
+if(op=='-')r=x-y;
+if(op=='*')r=x*y;
+if(op=='/')r=y!=0?x/y:'Fehler';
+document.getElementById('result').innerText=r;
+}
+</script>
+</div>
+</body>
+</html>
