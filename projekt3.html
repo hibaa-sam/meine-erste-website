@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wetter App - Hiba</title>
+<style>
+body{font-family:Arial;text-align:center;background:#FFFBF2;padding:20px}
+.box{background:white;padding:30px;max-width:500px;margin:40px auto;border-radius:24px;box-shadow:0 10px 30px rgba(0,0,0,0.08)}
+input{padding:14px;width:65%;border:2px solid #eee;border-radius:15px;font-size:16px;outline:none}
+button{background:#ff6b6b;color:white;border:none;padding:14px 22px;border-radius:15px;font-weight:bold;cursor:pointer;margin-left:5px}
+#result{margin-top:25px;padding:20px;background:#FFF1F2;border-radius:20px;display:none}
+.temp{font-size:50px;font-weight:bold;color:#ff6b6b}
+a{color:#999;text-decoration:none;display:block;margin-top:25px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>Wetter App 🌤️</h1>
+<p>Stadt eingeben:</p>
+<input id="city" placeholder="z.B. Taza, Berlin...">
+<button onclick="getWetter()">Suchen</button>
+<div id="result">
+<div id="cityName" style="font-weight:bold;font-size:18px"></div>
+<div class="temp" id="temp"></div>
+<div id="desc"></div>
+</div>
+<a href="index.html">← Zurück zur Hauptseite</a>
+</div>
+<script>
+async function getWetter(){
+ let city=document.getElementById('city').value;
+ if(!city) return;
+ document.getElementById('result').style.display='block';
+ document.getElementById('cityName').innerText='Suche '+city+'...';
+ try{
+  let geo=await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1&language=de`);
+  let geoData=await geo.json();
+  if(!geoData.results){document.getElementById('cityName').innerText='Stadt nicht gefunden!';return}
+  let lat=geoData.results[0].latitude;
+  let lon=geoData.results[0].longitude;
+  let name=geoData.results[0].name + ', ' + geoData.results[0].country;
+  let w=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+  let wData=await w.json();
+  let t=wData.current_weather.temperature;
+  document.getElementById('cityName').innerText=name;
+  document.getElementById('temp').innerText=t+'°C';
+  document.getElementById('desc').innerText='Aktuelles Wetter';
+ }catch(e){document.getElementById('cityName').innerText='Fehler! Internet prüfen.'}
+}
+</script>
+</body>
+</html>
