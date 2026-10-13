@@ -5,39 +5,51 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hiba aus Taza - Level 2</title>
 <style>
-body { font-family: Arial; text-align: center; background: #FFFBF2; padding: 20px; }
-.box { background: white; padding: 30px; max-width: 600px; margin: 40px auto; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
-h1 { color: #ff6b6b; }
-.ziel { background: #ff6b6b; color: white; padding: 15px; border-radius: 15px; margin-top: 15px; font-weight: bold; }
-.projekt { background: #FFF1F2; border: 2px dashed #FF6B7A; padding: 20px; border-radius: 20px; margin-top: 25px; }
-.btn { background: #ff6b6b; color: white; padding: 14px 24px; border-radius: 25px; text-decoration: none; display: inline-block; font-weight: bold; margin: 5px; }
-.level { background:#222; color:#00ff88; padding:12px; border-radius:12px; font-family:monospace; margin-bottom:15px; }
-.bar { background:#eee; height:12px; border-radius:10px; overflow:hidden; margin-top:8px; }
-.fill { background:#00ff88; height:100%; width:2%; }
+body { font-family: Arial; text-align: center; background: #FFFBF2; padding: 12px; margin:0; }
+.box { background: white; padding: 20px; max-width: 600px; margin: 20px auto; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+h1 { color: #ff6b6b; font-size: 26px; margin: 10px 0; }
+p { margin: 5px 0; }
+.level { background:#111; color:#00ff88; padding:10px; border-radius:12px; font-family:monospace; font-size:13px; margin:12px 0; text-align:left; }
+.bar { background:#333; height:10px; border-radius:10px; overflow:hidden; margin-top:6px; }
+.fill { background:#00ff88; height:100%; width:2%; transition:1s; }
+.ziel { background: #ff6b6b; color: white; padding: 12px; border-radius: 15px; margin: 12px 0; font-weight: bold; font-size:14px; }
+.projekt { background: #FFF1F2; border: 2px dashed #FF6B7A; padding: 15px; border-radius: 20px; margin-top: 15px; }
+.projekt h3{margin:8px 0}
+.grid { display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:10px; }
+.btn { background: #ff6b6b; color: white; padding: 12px 10px; border-radius: 18px; text-decoration: none; display: block; font-weight: bold; font-size:14px; }
+.btn-neu { background:#00c896; grid-column: span 2; }
+.btn-dark { background:#222; }
+small{color:#888}
 </style>
 </head>
 <body>
 <div class="box">
 <h1>Hallo! Ich bin Hiba 👋</h1>
 <p>Ich komme aus Taza, Marokko 🇲🇦</p>
-<p>Ich lerne Dev & Deutsch B2</p>
+<p>Ich lerne Dev & Deutsch B2 <small>IBEGIS Fès</small></p>
 
 <div class="level">
-> Level 2 / 100 
+> Level 2 / 100 ✅<br>
+> Projekte: 5 / 100<br>
 <div class="bar"><div class="fill"></div></div>
-> Nächstes: Deutschland Countdown...
+> Nächstes: Level 3...
 </div>
 
-<div class="ziel">Mein Ziel: Ausbildung 2028 in Deutschland</div>
+<div class="ziel">🎯 Mein Ziel: Ausbildung 2028 in Deutschland</div>
 
 <div class="projekt">
 <h3>Meine Projekte 🚀</h3>
-<a class="btn" href="projekt1.html">🧮 Taschenrechner</a>
+<div class="grid">
+<a class="btn" href="projekt1.html">🧮 Taschen</a>
 <a class="btn" href="projekt2.html">✅ To-Do</a>
 <a class="btn" href="projekt3.html">🌤️ Wetter</a>
-<a class="btn" href="projekt4.html" style="background:#222;">🕐 Uhr Taza & Berlin</a>
-<a class="btn" href="projekt5.html" style="background:#00c896;">🇩🇪 Projekt 5 - NEU! Level 2</a>
+<a class="btn btn-dark" href="projekt4.html">🕐 Uhr</a>
+<a class="btn btn-neu" href="projekt5.html">🇩🇪 Countdown - Level 2 NEU!</a>
 </div>
+<p style="margin-top:10px;font-size:12px">689 Tage bis Deutschland ⏳</p>
+</div>
+
+<p style="font-size:11px;color:#aaa;margin-top:15px">Made with ❤️ in Taza | Level 2 - 13.10.2026</p>
 </div>
 </body>
 </html>
