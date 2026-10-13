@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Deutschland Countdown - Level 2</title>
+<style>
+body{background:#fdf6e3;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:Arial;margin:0}
+.card{background:white;padding:35px;border-radius:25px;box-shadow:0 15px 40px rgba(0,0,0,0.1);text-align:center;max-width:400px}
+h2{color:#000;font-size:28px}
+#countdown{display:flex;justify-content:space-around;margin:20px 0}
+.box{background:#ff6b6b;color:white;padding:15px;border-radius:15px;min-width:65px}
+.box span{font-size:28px;font-weight:bold;display:block}
+#spruch{margin-top:20px;font-style:italic;color:#555;background:#fff3f3;padding:15px;border-radius:15px}
+a{color:#ff6b6b;text-decoration:none;margin-top:20px;display:block}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>Mein Traum: Deutschland 2028 🇩🇪</h2>
+<p>Level 2 / 100 - Hiba aus Taza</p>
+
+<div id="countdown">
+<div class="box"><span id="tage">0</span>Tage</div>
+<div class="box"><span id="stunden">0</span>Std</div>
+<div class="box"><span id="min">0</span>Min</div>
+</div>
+
+<div id="spruch">Lade Motivation...</div>
+<p>Ziel: 01.09.2028 - Ausbildung Fachinformatikerin</p>
+<a href="index.html">← Zurück zur Hauptseite</a>
+</div>
+
+<script>
+const ziel = new Date("2028-09-01T00:00:00").getTime();
+const sprueche = [
+"Du schaffst das, Hiba! 💪",
+"Jeden Tag ein bisschen besser! 📚",
+"Dein Traum ist ganz nah! 🇩🇪",
+"Taza → Deutschland, du machst das! ✈️",
+"Level 2 heute, Level 100 bald! 🎮",
+"Die Zukunft gehört dir! 🌟"
+];
+
+function update(){
+ let jetzt = new Date().getTime();
+ let diff = ziel - jetzt;
+ let tage = Math.floor(diff / (1000*60*60*24));
+ let std = Math.floor((diff % (1000*60*60*24))/(1000*60*60));
+ let min = Math.floor((diff % (1000*60*60))/(1000*60));
+ document.getElementById('tage').innerText = tage;
+ document.getElementById('stunden').innerText = std;
+ document.getElementById('min').innerText = min;
+}
+update();
+setInterval(update, 60000);
+document.getElementById('spruch').innerText = sprueche[Math.floor(Math.random()*sprueche.length)];
+</script>
+</body>
+</html>
